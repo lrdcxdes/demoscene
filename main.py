@@ -9,8 +9,6 @@ import time
 from fastapi.middleware.cors import CORSMiddleware
 
 from bs4 import BeautifulSoup
-import markdown
-from html import escape
 
 app = FastAPI()
 
