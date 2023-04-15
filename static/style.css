@@ -292,21 +292,6 @@ h1 {
     text-align: center;
 }
 
-/* relative style for mobile devices */
-@media only screen and (max-width: 600px) {
-    .container {
-        max-width: 100%;
-    }
-
-    .right-btn {
-        display: none;
-    }
-
-    .left-btn {
-        display: none;
-    }
-}
-
 /* relative style for desktop devices */
 @media only screen and (min-width: 601px) {
     .right-btn {
@@ -335,5 +320,17 @@ h1 {
     .messages {
         margin: 0;
         padding: 0;
+    }
+
+    .input-message {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .send-btn {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 100%;
     }
 }
