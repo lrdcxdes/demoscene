@@ -3,4 +3,4 @@
 Webpage: **https://sthings.ml**
 
 ## Day 1
-![Screenshot. Day 1](https://iili.io/Hv1LMej.png)
+[Screenshot](https://iili.io/Hv1LMej.png)
