@@ -84,6 +84,15 @@ class ConnectionManager:
 manager = ConnectionManager()
 
 
+def remove_bad_content(content):
+    soup = BeautifulSoup(content, "html.parser")
+    for tag in soup.find_all("script"):
+        tag.decompose()
+    for tag in soup.find_all("style"):
+        tag.decompose()
+    return soup.prettify().strip()
+
+
 @app.websocket("/ws/{user_id}")
 async def websocket_endpoint(websocket: WebSocket):
     success = await manager.connect(websocket)
@@ -104,9 +113,11 @@ async def websocket_endpoint(websocket: WebSocket):
             # max lenght is limit by sqlite
             if len(content) > 1000000000:
                 content = content[:1000000000]
-            content = escape(BeautifulSoup(content, "html.parser").prettify().strip())
-            content = markdown.markdown(content).strip()
-            # check if html in content
+            # content = escape(BeautifulSoup(content, "html.parser").prettify().strip())
+            # content = markdown.markdown(content).strip()
+            content = remove_bad_content(content)
+            if not content:
+                continue
             message = db.add_message(content)
             await manager.broadcast(
                 {
