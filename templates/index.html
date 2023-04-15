@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/static/favicon.png">
+    <link rel="apple-touch-icon" type="image/png" href="/static/favicon.png">
+    <title>.demoscene | S.1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/loaders.css/0.1.2/loaders.min.css">
+    <link href="/static/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="loader" id="loader" style="display: flex">
+    <div class="loader-inner ball-pulse">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div id="error"></div>
+</div>
+
+<button class="scroll-btn" id="scroll-to-top"></button>
+<button class="scroll-btn" id="scroll-to-bottom"></button>
+<div class="container">
+    <div class="messages">
+        {% for message in messages %}
+        <div class="message" id="m-{{ message.id }}" data-id="{{ message.id }}">
+            <div class="message-date">
+                {{ message.created_at }}
+            </div>
+            <div class="message-content">
+                {{ message.content|safe }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!--suppress HtmlFormInputWithoutLabel -->
+    <textarea role="textbox" contenteditable id="message-input" placeholder="Type your message here..." class="input-message"></textarea>
+    <button class="send-btn" id="send-message">Send</button>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+<script>
+    const loader = document.getElementById("loader");
+    const messageInput = document.getElementById("message-input");
+    const sendMessage = document.getElementById("send-message");
+    const messagesContainer = document.querySelector(".messages");
+
+    let socket;
+
+    function connect() {
+        socket = new WebSocket("wss://sthings.ml/ws/" + Date.now());
+
+        socket.onopen = () => {
+            console.log("Connected to the server");
+            loader.style.display = "none";
+        };
+
+        socket.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            if (data.type === "message") {
+                const message = document.createElement("div");
+                message.classList.add("message");
+                message.setAttribute("id", `m-${data.id}`);
+                message.setAttribute("data-id", data.id);
+                message.innerHTML = `<div class="message-date">${data.created_at}</div>\n<div class="message-content">${data.content}</div>`;
+                const elem = messagesContainer.appendChild(message) //messagesContainer.insertBefore(message, messagesContainer.firstChild);
+                // animate
+                $(elem).hide().fadeIn(500);
+                scrollToBottom();
+            }
+        };
+
+        socket.onclose = function (e) {
+            loader.style.display = "flex";
+            $("#error").text("Connection lost. Reconnecting... (" + e.reason + ")");
+            console.log('Socket is closed. Reconnect will be attempted in 1 second.', e.reason);
+            setTimeout(function () {
+                connect();
+            }, 1000);
+        };
+
+        socket.onerror = function (err) {
+            console.error('Socket encountered error: ', err.message, 'Closing socket');
+            socket.close();
+        };
+    }
+
+    connect();
+
+    sendMessage.addEventListener("click", () => {
+        sendMessage.disabled = true;
+        $(sendMessage).toggleClass("loading")
+        messageInput.disabled = true;
+        const message = messageInput.value;
+        socket.send(JSON.stringify({
+            type: "message",
+            content: message
+        }));
+        messageInput.value = "";
+        $(sendMessage).toggleClass("loading")
+        sendMessage.disabled = false;
+        messageInput.disabled = false;
+    });
+
+    function scrollToBottom() {
+        $("html, body").animate({ scrollTop: $(messagesContainer).height() }, 500);
+    }
+
+    function scrollToTop() {
+        $("html, body").animate({ scrollTop: 0 }, 500);
+    }
+
+    const scrollToBottomBtn = $("#scroll-to-bottom");
+    scrollToBottomBtn.click(() => {
+        scrollToBottom()
+    });
+
+    const scrollToTopBtn = $("#scroll-to-top");
+    scrollToTopBtn.click(() => {
+        scrollToTop()
+    });
+
+    scrollToBottom();
+</script>
+
+</body>
+</html>
