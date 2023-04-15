@@ -185,7 +185,7 @@ h1 {
 }
 
 /* button circle with arrow inside at the right corner of page click on to go bottom of page */
-.scroll-btn {
+.right-btn {
     background-color: #1e1e1e;
     border: 1px solid #2e2e2e;
     border-radius: 50%;
@@ -201,8 +201,42 @@ h1 {
     z-index: 1;
 }
 
-.scroll-btn:hover {
+.right-btn:hover {
     background-color: #2e2e2e;
+}
+
+.left-btn {
+    background-color: #1e1e1e;
+    border: 1px solid #2e2e2e;
+    border-radius: 50%;
+    top: 20px;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 24px;
+    line-height: 1.5;
+    padding: 15px;
+    position: fixed;
+    left: 20px;
+    z-index: 1;
+}
+
+.left-btn:hover {
+    background-color: #2e2e2e;
+}
+
+#github {
+    background-image: url("/static/github.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+}
+
+#minecraft {
+    background-image: url("/static/minecraft.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
 }
 
 #scroll-to-top {
@@ -297,7 +331,7 @@ h1 {
         padding: 5px;
     }
 
-    .scroll-btn {
+    .right-btn {
         font-size: 12px;
         padding: 5px;
     }
@@ -355,7 +389,7 @@ h1 {
         padding: 10px;
     }
 
-    .scroll-btn {
+    .right-btn {
         font-size: 14px;
         padding: 10px;
     }
@@ -413,7 +447,7 @@ h1 {
         padding: 15px;
     }
 
-    .scroll-btn {
+    .right-btn {
         font-size: 16px;
         padding: 15px;
     }
@@ -471,7 +505,7 @@ h1 {
         padding: 20px;
     }
 
-    .scroll-btn {
+    .right-btn {
         font-size: 18px;
         padding: 20px;
     }
