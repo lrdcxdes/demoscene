@@ -1,2 +1,2 @@
 # demoscene
-![screenshot](https://iili.io/Hv1LMej.md.png)
+![screenshot](https://iili.io/Hv1LMej.png)
