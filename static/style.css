@@ -292,255 +292,48 @@ h1 {
     text-align: center;
 }
 
-/* media query <meta name="viewport" content="width=device-width, initial-scale=1.0"> */
-@media (max-width: 300px) {
-    .message-content h1 {
-        font-size: 16px;
-    }
-
-    .message-content h2 {
-        font-size: 12px;
-    }
-
-    .message-content h3 {
-        font-size: 10px;
-    }
-
-    .message-content h4 {
-        font-size: 8px;
-    }
-
-    .message-content h5 {
-        font-size: 6px;
-    }
-
-    .message .message-date {
-        font-size: 6px;
-    }
-
-    .input-message {
-        font-size: 8px;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        padding: 5px;
-    }
-
-    .send-btn {
-        font-size: 8px;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        padding: 5px;
+/* relative style for mobile devices */
+@media only screen and (max-width: 600px) {
+    .container {
+        max-width: 100%;
     }
 
     .right-btn {
-        font-size: 12px;
-        padding: 5px;
+        display: none;
     }
 
     .left-btn {
-        font-size: 12px;
-        padding: 5px;
-    }
-
-    #scroll-to-top {
-        top: 5px;
-    }
-
-    #scroll-to-bottom {
-        top: 35px;
-    }
-
-    .loader-inner {
-        width: 60px;
-        height: 60px;
+        display: none;
     }
 }
 
-@media (min-width: 301px) and (max-width: 400px) {
-    .message-content h1 {
-        font-size: 18px;
-    }
-
-    .message-content h2 {
-        font-size: 14px;
-    }
-
-    .message-content h3 {
-        font-size: 12px;
-    }
-
-    .message-content h4 {
-        font-size: 10px;
-    }
-
-    .message-content h5 {
-        font-size: 8px;
-    }
-
-    .message .message-date {
-        font-size: 8px;
-    }
-
-    .input-message {
-        font-size: 10px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        padding: 10px;
-    }
-
-    .send-btn {
-        font-size: 10px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        padding: 10px;
-    }
-
+/* relative style for desktop devices */
+@media only screen and (min-width: 601px) {
     .right-btn {
-        font-size: 14px;
-        padding: 10px;
+        display: block;
     }
 
     .left-btn {
-        font-size: 12px;
-        padding: 5px;
-    }
-
-    #scroll-to-top {
-        top: 10px;
-    }
-
-    #scroll-to-bottom {
-        top: 45px;
-    }
-
-    .loader-inner {
-        width: 80px;
-        height: 80px;
+        display: block;
     }
 }
 
-@media (min-width: 401px) and (max-width: 500px) {
-    .message-content h1 {
-        font-size: 20px;
-    }
-
-    .message-content h2 {
-        font-size: 16px;
-    }
-
-    .message-content h3 {
-        font-size: 14px;
-    }
-
-    .message-content h4 {
-        font-size: 12px;
-    }
-
-    .message-content h5 {
-        font-size: 10px;
-    }
-
-    .message .message-date {
-        font-size: 10px;
-    }
-
-    .input-message {
-        font-size: 12px;
-        margin-top: 15px;
-        margin-bottom: 15px;
-        padding: 15px;
-    }
-
-    .send-btn {
-        font-size: 12px;
-        margin-top: 15px;
-        margin-bottom: 15px;
-        padding: 15px;
+/* relative style for mobile devices */
+@media only screen and (max-width: 600px) {
+    .container {
+        max-width: 100%;
     }
 
     .right-btn {
-        font-size: 16px;
-        padding: 15px;
+        display: none;
     }
 
     .left-btn {
-        font-size: 12px;
-        padding: 5px;
+        display: none;
     }
 
-    #scroll-to-top {
-        top: 15px;
-    }
-
-    #scroll-to-bottom {
-        top: 55px;
-    }
-
-    .loader-inner {
-        width: 100px;
-        height: 100px;
-    }
-}
-
-@media (min-width: 501px) and (max-width: 600px) {
-    .message-content h1 {
-        font-size: 22px;
-    }
-
-    .message-content h2 {
-        font-size: 18px;
-    }
-
-    .message-content h3 {
-        font-size: 16px;
-    }
-
-    .message-content h4 {
-        font-size: 14px;
-    }
-
-    .message-content h5 {
-        font-size: 12px;
-    }
-
-    .message .message-date {
-        font-size: 12px;
-    }
-
-    .input-message {
-        font-size: 14px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        padding: 20px;
-    }
-
-    .send-btn {
-        font-size: 14px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        padding: 20px;
-    }
-
-    .right-btn {
-        font-size: 18px;
-        padding: 20px;
-    }
-
-    .left-btn {
-        font-size: 12px;
-        padding: 5px;
-    }
-
-    #scroll-to-top {
-        top: 20px;
-    }
-
-    #scroll-to-bottom {
-        top: 65px;
-    }
-
-    .loader-inner {
-        width: 120px;
-        height: 120px;
+    .messages {
+        margin: 0;
+        padding: 0;
     }
 }
