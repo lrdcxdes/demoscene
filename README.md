@@ -1,3 +1,6 @@
 # .demoscene | S.1
 
-link: https://sthings.ml
+Webpage: **https://sthings.ml**
+
+## Day 1
+![Screenshot. Day 1](https://iili.io/Hv1LMej.png)
