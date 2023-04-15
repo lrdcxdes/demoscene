@@ -337,6 +337,11 @@ h1 {
         padding: 5px;
     }
 
+    .left-btn {
+        font-size: 12px;
+        padding: 5px;
+    }
+
     #scroll-to-top {
         top: 5px;
     }
@@ -393,6 +398,11 @@ h1 {
     .right-btn {
         font-size: 14px;
         padding: 10px;
+    }
+
+    .left-btn {
+        font-size: 12px;
+        padding: 5px;
     }
 
     #scroll-to-top {
@@ -453,6 +463,11 @@ h1 {
         padding: 15px;
     }
 
+    .left-btn {
+        font-size: 12px;
+        padding: 5px;
+    }
+
     #scroll-to-top {
         top: 15px;
     }
@@ -509,6 +524,11 @@ h1 {
     .right-btn {
         font-size: 18px;
         padding: 20px;
+    }
+
+    .left-btn {
+        font-size: 12px;
+        padding: 5px;
     }
 
     #scroll-to-top {
