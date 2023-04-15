@@ -1,2 +1,2 @@
 # demoscene
-![Initial screenshot](https://imgur.com/8gr3f9a)
+![Initial screenshot](https://i.imgur.com/8gr3f9a.jpg)
