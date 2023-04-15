@@ -112,7 +112,7 @@
 
     function scrollToBottom() {
         // scroll to bottom of window
-        $("html, body").animate({ scrollTop: $(document).height() }, 500);
+        $("html, body").animate({ scrollTop: $(document).height()-$(window).height() }, 500);
     }
 
     function scrollToTop() {
