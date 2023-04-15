@@ -111,7 +111,8 @@
     });
 
     function scrollToBottom() {
-        $("html, body").animate({ scrollTop: $(messagesContainer).height() }, 500);
+        // scroll to bottom of window
+        $("html, body").animate({ scrollTop: $(document).height() }, 500);
     }
 
     function scrollToTop() {
