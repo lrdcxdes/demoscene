@@ -24,6 +24,7 @@
 </div>
 
 <button id="github" class="left-btn" onclick="window.open('https://github.com/lrdcxdes/demoscene', '_blank')"></button>
+<button id="minecraft" class="left-btn" onclick="copyIp()"></button>
 <button class="right-btn" id="scroll-to-top"></button>
 <button class="right-btn" id="scroll-to-bottom"></button>
 <div class="container">
@@ -126,6 +127,11 @@
     scrollToTopBtn.click(() => {
         scrollToTop()
     });
+
+    function copyIp() {
+        navigator.clipboard.writeText("sthings.ml");
+        alert("Copied ip to clipboard!");
+    }
 
     scrollToBottom();
 </script>
