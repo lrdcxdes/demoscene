@@ -237,6 +237,7 @@ h1 {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 50%;
+    top: 55px;
 }
 
 #scroll-to-top {
