@@ -199,8 +199,15 @@ textarea {
     line-height: 1.5;
     padding: 15px;
     position: fixed;
-    right: 20px;
     z-index: 1;
+}
+
+.side-btn .right {
+    right: 20px;
+}
+
+.side-btn .left {
+    left: 20px;
 }
 
 .side-btn:hover {
