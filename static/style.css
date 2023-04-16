@@ -202,11 +202,11 @@ textarea {
     z-index: 1;
 }
 
-.side-btn+.right {
+.side-btn.right {
     right: 20px;
 }
 
-.side-btn+.left {
+.side-btn.left {
     left: 20px;
 }
 
