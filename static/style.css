@@ -98,7 +98,6 @@ h1 {
     padding: 0;
 }
 
-/* btn after input message, make this bottom of page */
 .input-message {
     background-color: #1e1e1e;
     border-radius: 5px;
@@ -188,8 +187,7 @@ textarea {
     background: #3e3e3e;
 }
 
-/* button circle with arrow inside at the right corner of page click on to go bottom of page */
-.right-btn {
+.side-btn {
     background-color: #1e1e1e;
     border: 1px solid #2e2e2e;
     border-radius: 50%;
@@ -205,27 +203,7 @@ textarea {
     z-index: 1;
 }
 
-.right-btn:hover {
-    background-color: #2e2e2e;
-}
-
-.left-btn {
-    background-color: #1e1e1e;
-    border: 1px solid #2e2e2e;
-    border-radius: 50%;
-    top: 20px;
-    color: #fff;
-    cursor: pointer;
-    font-family: 'Roboto Mono', monospace;
-    font-size: 24px;
-    line-height: 1.5;
-    padding: 15px;
-    position: fixed;
-    left: 20px;
-    z-index: 1;
-}
-
-.left-btn:hover {
+.side-btn:hover {
     background-color: #2e2e2e;
 }
 
@@ -259,15 +237,6 @@ textarea {
     top: 55px;
 }
 
-/* <div class="loader" id="loader">
-        <div class="loader-inner ball-pulse">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <div id="error"></div>
-    </div> */
-
 .loader {
     position: fixed;
     top: 0;
@@ -298,11 +267,11 @@ textarea {
 
 /* relative style for desktop devices */
 @media only screen and (min-width: 601px) {
-    .right-btn {
+    .side-btn {
         display: block;
     }
 
-    .left-btn {
+    .side-btn {
         display: block;
     }
 }
@@ -313,11 +282,11 @@ textarea {
         max-width: 100%;
     }
 
-    .right-btn {
+    .side-btn {
         display: none;
     }
 
-    .left-btn {
+    .side-btn {
         display: none;
     }
 
