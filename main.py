@@ -83,13 +83,14 @@ manager = ConnectionManager()
 
 
 def remove_bad_content(content):
-    content = content.replace("\n", "<br>")
-    soup = BeautifulSoup(content, "html.parser")
-    for tag in soup.find_all("script"):
-        tag.decompose()
-    for tag in soup.find_all("style"):
-        tag.decompose()
-    return soup.prettify().strip()
+    if "<" in content and ">" in content:
+        soup = BeautifulSoup(content, "html.parser")
+        for tag in soup.find_all("script"):
+            tag.decompose()
+        for tag in soup.find_all("style"):
+            tag.decompose()
+        return soup.prettify().strip()
+    return content
 
 
 @app.websocket("/ws/{user_id}")
