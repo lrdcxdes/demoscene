@@ -37,6 +37,10 @@ async def root(request: Request):
     )
 
 
+async def send_personal_message(message: str, websocket: WebSocket):
+    await websocket.send_text(message)
+
+
 class ConnectionManager:
     def __init__(self):
         self.active_connections: list[WebSocket] = []
@@ -65,9 +69,6 @@ class ConnectionManager:
     def disconnect(self, websocket: WebSocket):
         self.hosts[websocket.client.host] -= 1
         self.active_connections.remove(websocket)
-
-    async def send_personal_message(self, message: str, websocket: WebSocket):
-        await websocket.send_text(message)
 
     async def broadcast(self, json_message: dict):
         for connection in self.active_connections:
