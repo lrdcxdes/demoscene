@@ -10,7 +10,13 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from bs4 import BeautifulSoup
 
-app = FastAPI()
+app = FastAPI(
+    ssl_certfile="cert.pem",
+    ssl_keyfile="key.pem",
+    title="Demoscene | S.1",
+    description="Demoscene | S.1",
+    version="0.1.0",
+)
 
 origins = [
     "https://sthings.ml",
@@ -144,6 +150,6 @@ if __name__ == "__main__":
         host="0.0.0.0",
         port=80,
         log_level="info",
-        ssl_keyfile="key.pem",
         ssl_certfile="cert.pem",
+        ssl_keyfile="key.pem",
     )
