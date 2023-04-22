@@ -85,6 +85,12 @@ manager = ConnectionManager()
 def remove_bad_content(content):
     if "<" in content and ">" in content:
         soup = BeautifulSoup(content, "html.parser")
+        for tag in soup.find_all("html"):
+            tag.decompose()
+        for tag in soup.find_all("head"):
+            tag.decompose()
+        for tag in soup.find_all("body"):
+            tag.decompose()
         for tag in soup.find_all("script"):
             tag.decompose()
         for tag in soup.find_all("style"):
