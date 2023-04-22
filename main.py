@@ -10,6 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from bs4 import BeautifulSoup
 
+# domain sthings.ml
 app = FastAPI(
     ssl_certfile="cert.pem",
     ssl_keyfile="key.pem",
@@ -20,6 +21,7 @@ app = FastAPI(
 
 origins = [
     "https://sthings.ml",
+    "https://www.sthings.ml",
 ]
 
 app.add_middleware(
