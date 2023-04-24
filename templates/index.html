@@ -142,8 +142,16 @@
     });
 
     function copyIp() {
-        navigator.clipboard.writeText("sthings.ml");
-        alert("Copied ip to clipboard!");
+        // navigator.clipboard.writeText("IP copied")
+        // this fix the bug (it not copy the link on android and more devices) and uses es6
+        navigator.clipboard
+            .writeText("sthings.ml")
+            .then(() => {
+                alert("IP succesfully copied!")
+            })
+            .catch(() => {
+                alert("Something went wrong while copying IP!")
+            })
     }
 
     window.addEventListener("load", () => {
