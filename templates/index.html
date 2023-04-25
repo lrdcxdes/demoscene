@@ -71,8 +71,8 @@
         socket = new WebSocket("wss://sthings.ml/ws/" + Date.now());
 
         socket.onopen = () => {
-            console.log("Connected to the server");
             loader.style.display = "none";
+            console.log("Connected to the server");
         };
 
         socket.onmessage = (event) => {
@@ -92,7 +92,7 @@
 
         socket.onclose = function (e) {
             loader.style.display = "flex";
-            $("#error").text("Connection lost. Reconnecting... (" + e.reason + ")");
+            $("#error").text("Connection lost. Reconnecting..." + (e.reason ? (" + e.reason + ") : ""));
             console.log('Socket is closed. Reconnect will be attempted in 1 second.', e.reason);
             setTimeout(function () {
                 connect();
